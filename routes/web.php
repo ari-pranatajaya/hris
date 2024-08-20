@@ -28,8 +28,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-route::get('/cek1', function(){
-    return '<h1>Check 1</h1>';
-})->middleware(['auth', 'verified']);
+route::get('employee', function(){
+    return '<h1>List Karyawan</h1>';
+})->middleware(['auth', 'verified','role:admin']);
+
+route::get('bank', function(){
+    return '<h1>List Bank</h1>';
+})->middleware(['auth', 'verified','role:hr']);
 
 require __DIR__.'/auth.php';
