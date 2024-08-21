@@ -22,11 +22,27 @@ class UserSeeder extends Seeder
         $admin->assignRole('admin');
 
         $hr = User::create([
-            'name' => 'Florencia',
+            'name' => 'Head HR',
             'nik' => '3273012906880002',
-            'email'=> 'floren@tpfx.co.id',
+            'email'=> 'hr@tpfx.co.id',
             'password' => bcrypt('12345678')
         ]);
-        $admin->assignRole('hr');
+        $hr->assignRole('hr');
+
+        $staff_hr = User::create([
+            'name' => 'Staff HR',
+            'nik' => '3273012906880002',
+            'email'=> 'staff@tpfx.co.id',
+            'password' => bcrypt('12345678')
+        ]);
+        $staff_hr->assignRole('staff hr');
+
+        $employee = User::create([
+            'name' => 'Karyawan',
+            'nik' => '3273012906880002',
+            'email'=> 'employee@tpfx.co.id',
+            'password' => bcrypt('12345678')
+        ]);
+        $employee->assignRole('employee');
     }
 }

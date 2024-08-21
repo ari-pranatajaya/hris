@@ -28,7 +28,7 @@ class RolePermissionSeeder extends Seeder
 
         Role::create(['name'=>'admin']);
         Role::create(['name'=>'hr']);
-        Role::create(['name'=>'staff-hr']);
+        Role::create(['name'=>'staff hr']);
         Role::create(['name'=>'employee']);
 
         $roleAdmin = Role::findByName('admin');
@@ -42,6 +42,18 @@ class RolePermissionSeeder extends Seeder
         $roleHr->givePermissionTo('read-bank');
         $roleHr->givePermissionTo('update-bank');
         $roleHr->givePermissionTo('delete-bank');
+
+        $roleStaff = Role::findByName('staff hr');
+        $roleStaff->givePermissionTo('create-bank');
+        $roleStaff->givePermissionTo('read-bank');
+        $roleStaff->givePermissionTo('update-bank');
+        $roleStaff->givePermissionTo('delete-bank');
+
+        $roleEmployee = Role::findByName('employee');
+        $roleEmployee->givePermissionTo('create-bank');
+        $roleEmployee->givePermissionTo('read-bank');
+        $roleEmployee->givePermissionTo('update-bank');
+        $roleEmployee->givePermissionTo('delete-bank');
 
 
     }
